@@ -1,0 +1,20 @@
+﻿@model DocRepository.Models.Documents
+
+<tr>
+    <td>
+        @Html.DisplayTextFor(model => model.ShortDocName)
+    </td>
+    <td>
+        @Html.DisplayTextFor(model => model.DocDate)
+    </td>
+    <td>
+        @Html.DisplayTextFor(model => model.DocAuthor)
+    </td>
+    <td>
+        <a href="/Files/@Model.DocFileName" target="_blank"><img src="document.png" width="24" height="24" alt="Ссылка"></a>
+    </td>
+    <td>
+        @Html.ActionLink("Удалить", "Delete", new { id = Model.Id })
+    </td>
+    
+</tr>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<DocRepository.Models.Documents>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Список документов</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Наименование документа", "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Время создания", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Автор документа", "Index", new { sortOrder = ViewBag.AuthorSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocFileName)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        Html.RenderPartial("_PartialViewPage", item);
+    }
+</table>
+

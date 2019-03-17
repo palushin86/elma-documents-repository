@@ -1,0 +1,55 @@
+﻿@model DocRepository.Models.Documents
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Вы действительно хотите удалить документ?</h3>
+<div>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocName)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.DocName)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocDate)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.DocDate)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocAuthor)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.DocAuthor)
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DocFileName)
+            </th>
+            <td>
+                @Html.DisplayFor(model => model.DocFileName)
+            </td>
+        </tr>
+    </table>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Удалить документ" class="btn btn-default" /> |
+                @Html.ActionLink("Назад к списку документов", "Index")
+            </div>
+        }
+</div>
